@@ -10,7 +10,7 @@ exports.up = function(knex) {
     table.integer('license_number').notNullable();
     table.string('email').notNullable();
     table.string('password').notNullable();
-    table.string('hashed_password').notNullable();
+    // table.string('hashed_password').notNullable();
   });
 };
 
