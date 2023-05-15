@@ -48,7 +48,7 @@ exports.login = async (req, res, next) => {
     const user = await knex('therapists').first('*').where({email})
     if (!user) {
       console.log("no such user found:", req.body.email)
-      res.status(401).send("Wrong email or password")
+      res.status(401).send("User not found")
     }
     if (user.password === password) {
       let token = jwt.sign({email: email}, jsonSecretKey)
@@ -57,7 +57,7 @@ exports.login = async (req, res, next) => {
       .json({user, token: token})
     } else {
       console.log("Incorrect password for user:", email)
-      res.status(402).send("Wrong email or password2")
+      res.status(403).send("Wrong email or password")
     }
   }
   catch (err) {
