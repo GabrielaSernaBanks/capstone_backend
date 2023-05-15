@@ -7,6 +7,10 @@ router
   .get(therapistsController.index)
 
 router
+.route('/:therapist_id')
+.get(therapistsController.getOneTherapist)
+
+router
 .route('/signup')
 .post(therapistsController.signup)
 

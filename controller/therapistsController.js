@@ -19,6 +19,20 @@ exports.index = (_req, res) => {
     )
 }
 
+exports.getOneTherapist = (req, res) => {
+  knex('therapists')
+    .where({id: req.params.therapist_id})
+    .then((data) => {
+      if (!data.length) {
+        return res.status(404).send('Therapist not found')
+      }
+      res.status(200).json(data[0]);
+    })
+    .catch((err) =>
+      res.status(400).send(`Error retrieving therapist ${req.params.id} ${err}`)
+    );
+}
+
 
 exports.signup = (req, res) => {
       const therapist = {
