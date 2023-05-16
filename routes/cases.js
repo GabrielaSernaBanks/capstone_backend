@@ -13,10 +13,10 @@ router
   router
   .route('/case/:case_id')
   .get(casesController.getSingleCase)
-  .put(casesController.updateTherapistIDinsideCase)
 
   router
-  .route('/changecase/:id')
+  .route('/changecase/:case_id')
+    //need help with this PUT endpoint
   .put(casesController.updateTherapistIDinsideCase)
 
   router

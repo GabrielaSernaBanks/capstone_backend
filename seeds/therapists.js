@@ -10,7 +10,6 @@ const mockdata = [
     "last_name": 'Banks',
     'email': 'b.b123@gmail.com',
     'password': '2840dhw!',
-    // 'hashed_password': '2Jdo134',
     'license_number': 56476
   },
 
@@ -20,13 +19,11 @@ const mockdata = [
     "last_name": 'Sunflower',
     'email': 's.sunflower@gmail.com',
     'password': 'fehfiuhfo',
-    // 'hashed_password': 'oijjdoj',
     'license_number': 90876
   }
 ]
 
 exports.seed = async function(knex) {
-  // Deletes ALL existing entries
   return knex('therapists')
     .del()
     .then(() => {

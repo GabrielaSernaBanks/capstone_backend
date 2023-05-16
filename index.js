@@ -1,4 +1,3 @@
-//Remember to npm i these modules.
 const express = require('express');
 const app = express();
 const cors = require('cors');

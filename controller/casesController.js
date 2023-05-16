@@ -2,8 +2,6 @@ const knex = require('knex')(require('../knexfile'));
 const express = require('express')
 const router = express.Router();
 const { v4: uuidv4 } = require('uuid');
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs")
 
 exports.index = (_req, res) => {
   knex('cases')
@@ -15,7 +13,7 @@ exports.index = (_req, res) => {
 
 exports.getTherapistCases = (req, res) => {
   knex('cases')
-    .where({therapist_id: req.params.therapist_id})
+    .where({ therapist_id: req.params.therapist_id })
     .then((data) => {
       if (!data.length) {
         return res.status(404).send('Therapist not found')
@@ -29,7 +27,7 @@ exports.getTherapistCases = (req, res) => {
 
 exports.getSingleCase = (req, res) => {
   knex('cases')
-    .where({case_id: req.params.case_id})
+    .where({ case_id: req.params.case_id })
     .then((data) => {
       if (!data.length) {
         return res.status(404).send('Case not found')
@@ -43,7 +41,7 @@ exports.getSingleCase = (req, res) => {
 
 exports.specificCaseforTherapist = (req, res) => {
   knex('cases')
-    .where({case_id: req.params.case_id}, {therapist_id: req.params.therapist_id})
+    .where({ case_id: req.params.case_id }, { therapist_id: req.params.therapist_id })
     .then((data) => {
       if (!data.length) {
         return res.status(404).send('Case not found')
@@ -58,18 +56,20 @@ exports.specificCaseforTherapist = (req, res) => {
 //this is where i need help; it does not update the therapist_id in mySQL table 'cases'
 exports.updateTherapistIDinsideCase = async (req, res) => {
   try {
-    const { id } = req.params;
-    console.log(id)
+    const { case_id } = req.params;
+    console.log(case_id)
     const { therapist_id } = req.body;
     console.log(therapist_id)
-    
+
     await knex("cases")
-    .join('therapists', 'therapists.id', '=', 'cases.therapist_id')
-    .where('cases.case_id', '=', id)
-    .update('cases.therapist_id', therapist_id)
+      .join('therapists', 'therapists.id', '=', 'cases.therapist_id')
+      .where('cases.case_id', '=', case_id)
+      .update('cases.therapist_id', therapist_id)
     res
-    .status(200)
-    .send(`case ${id} updated successfully with ${therapist_id}`)
-  } catch(err) {
+      .status(200)
+      .send(`case ${id} updated successfully with ${therapist_id}`)
+  } catch (err) {
     console.log(err);
-		return res.status(400).send(`Error updating case`)}}
+    return res.status(400).send(`Error updating case`)
+  }
+}
