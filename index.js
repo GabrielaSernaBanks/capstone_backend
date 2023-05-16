@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081;
 
 const therapistsRoute = require('./routes/therapists');
 const casesRoute = require('./routes/cases');
