@@ -67,7 +67,7 @@ exports.updateTherapistIDinsideCase = async (req, res) => {
       .update('cases.therapist_id', therapist_id)
     res
       .status(200)
-      .send(`case ${id} updated successfully with ${therapist_id}`)
+      .send(`case ${case_id} updated successfully with ${therapist_id}`)
   } catch (err) {
     console.log(err);
     return res.status(400).send(`Error updating case`)

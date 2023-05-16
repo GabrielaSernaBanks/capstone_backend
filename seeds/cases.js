@@ -13,7 +13,7 @@ const mockdata = [
 		"student_grade": 6,
 		"date_posted": "4/18/2023",
 		"type": "Language and Pragmatics",
-		"therapist_id": "",
+		"therapist_id": "a",
 		"status": "pending"
 	},
 
@@ -26,7 +26,7 @@ const mockdata = [
 		"student_grade": 7,
 		"date_posted": "4/9/2023",
 		"type": "Language and Pragmatics ",
-		"therapist_id": "",
+		"therapist_id": "a",
 		"status": "pending"
 	},
 
@@ -51,7 +51,7 @@ const mockdata = [
 		"student_grade": 9,
 		"date_posted": "5/6/2023",
 		"type": "Articulation",
-		"therapist_id": "",
+		"therapist_id": "a",
 		"status": "pending"
 	},
   {
@@ -75,7 +75,7 @@ const mockdata = [
 		"student_grade": 5,
 		"date_posted": "5/7/2023",
 		"type": "Language  and Pragmatics",
-		"therapist_id": "",
+		"therapist_id": "a",
 		"status": "pending"
 	},
 	{
@@ -87,7 +87,7 @@ const mockdata = [
 		"student_grade": 2,
 		"date_posted": "4/30/2023",
 		"type": "Fluency",
-		"therapist_id": "",
+		"therapist_id": "a",
 		"status": "pending"
 	},
 	{
@@ -123,7 +123,7 @@ const mockdata = [
 		"student_grade": 8,
 		"date_posted": "4/24/2023",
 		"type": "Speech Language and Pragmatics",
-		"therapist_id": "",
+		"therapist_id": "a",
 		"status": "pending"
 	}
 
